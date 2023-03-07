@@ -16,16 +16,7 @@ describe("button component", () => {
   });
 
   it("should correctly render with text", async () => {
-    expect(element).toEqualHtml(`
-    <ic-button class="button-size-default button-variant-primary">
-       <mock:shadow-root>
-         <button class="button" type="button">
-           <slot></slot>
-         </button>
-       </mock:shadow-root>
-        Button
-      </ic-button>
-    `);
+    expect(element).toMatchSnapshot();
   });
 
   it("should correctly render with custom text", async () => {
@@ -35,16 +26,7 @@ describe("button component", () => {
     });
     element = page.root;
 
-    expect(element).toEqualHtml(`
-    <ic-button class="button-size-default button-variant-primary">
-       <mock:shadow-root>
-         <button class="button" type="button">
-           <slot></slot>
-         </button>
-       </mock:shadow-root>
-        Click Me
-      </ic-button>
-    `);
+    expect(element).toMatchSnapshot();
   });
 
   it("should render correct HTML for secondary variant", async () => {
@@ -54,16 +36,7 @@ describe("button component", () => {
     });
     element = page.root;
 
-    expect(element).toEqualHtml(`
-    <ic-button class="button-size-default button-variant-secondary" variant='secondary'>
-       <mock:shadow-root>
-         <button class="button" type="button">
-           <slot></slot>
-         </button>
-       </mock:shadow-root>
-        Button
-      </ic-button>
-    `);
+    expect(element).toMatchSnapshot();
   });
 
   it("should render correct HTML for tertiary variant", async () => {
@@ -73,16 +46,7 @@ describe("button component", () => {
     });
     element = page.root;
 
-    expect(element).toEqualHtml(`
-    <ic-button class="button-size-default button-variant-tertiary" variant='tertiary'>
-       <mock:shadow-root>
-         <button class="button" type="button">
-           <slot></slot>
-         </button>
-       </mock:shadow-root>
-        Button
-      </ic-button>
-    `);
+    expect(element).toMatchSnapshot();
   });
 
   it("should render correct HTML for destructive variant", async () => {
@@ -92,16 +56,7 @@ describe("button component", () => {
     });
     element = page.root;
 
-    expect(element).toEqualHtml(`
-    <ic-button class="button-size-default button-variant-destructive" variant='destructive'>
-       <mock:shadow-root>
-         <button class="button" type="button">
-           <slot></slot>
-         </button>
-       </mock:shadow-root>
-        Button
-      </ic-button>
-    `);
+    expect(element).toMatchSnapshot();
   });
 
   it("should render correct HTML with Icon", async () => {
@@ -119,23 +74,7 @@ describe("button component", () => {
     });
     element = page.root;
 
-    expect(element).toEqualHtml(`
-    <ic-button class="button-size-default button-variant-primary">
-       <mock:shadow-root>
-          <button class="button" type="button">
-              <div class="icon-container">
-                <slot name="icon"></slot>
-              </div>
-              <slot></slot>
-            </button>
-          </mock:shadow-root>
-          <svg fill="#000000" height="24px" slot="icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 0h24v24H0V0z" fill="none"></path>
-            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"></path>
-          </svg>
-           Button
-         </ic-button>
-    `);
+    expect(element).toMatchSnapshot();
   });
 
   it("should render correct HTML when loading", async () => {
@@ -147,18 +86,7 @@ describe("button component", () => {
     });
     element = page.root;
 
-    expect(element).toEqualHtml(`
-    <ic-button class="button-size-default button-variant-primary loading" loading="">
-       <mock:shadow-root>
-         <button aria-disabled="true" aria-label="Loading" class="button" type="button">
-           <div class="loading-container">
-            <ic-loading-indicator appearance="light" type="linear"></ic-loading-indicator>
-           </div>
-         </button>
-       </mock:shadow-root>
-       Button
-     </ic-button>
-    `);
+    expect(element).toMatchSnapshot();
   });
 
   it("render with correct button type when defined", async () => {
@@ -170,16 +98,7 @@ describe("button component", () => {
     });
     element = page.root;
 
-    expect(element).toEqualHtml(`
-    <ic-button class="button-size-default button-variant-primary" type="reset">
-       <mock:shadow-root>
-         <button class="button" type="reset">
-           <slot></slot>
-         </button>
-       </mock:shadow-root>
-       Button
-     </ic-button>
-    `);
+    expect(element).toMatchSnapshot();
   });
 
   it('should render with "a" tag when href is passed', async () => {
@@ -191,16 +110,7 @@ describe("button component", () => {
     });
     element = page.root;
 
-    expect(element).toEqualHtml(`
-    <ic-button class="button-size-default button-variant-primary" href="#">
-       <mock:shadow-root>
-         <a href="#" class="button">
-         <slot></slot>
-         </a>
-       </mock:shadow-root>
-       Button
-     </ic-button>
-    `);
+    expect(element).toMatchSnapshot();
   });
 
   it('should render with defined "a" tag props', async () => {
@@ -212,16 +122,7 @@ describe("button component", () => {
     });
     element = page.root;
 
-    expect(element).toEqualHtml(`
-    <ic-button class="button-size-default button-variant-primary" href="#" download="" rel="nofollow" target="_blank">
-       <mock:shadow-root>
-         <a href="#" download="" rel="nofollow" target="_blank" class="button">
-         <slot></slot>
-         </a>
-       </mock:shadow-root>
-       Button
-     </ic-button>
-    `);
+    expect(element).toMatchSnapshot();
   });
 
   it("should render icon variant with a tooltip", async () => {
@@ -231,18 +132,7 @@ describe("button component", () => {
     });
     element = page.root;
 
-    expect(element).toEqualHtml(`
-      <ic-button class="button-size-default button-variant-icon" id="test-button" variant="icon">
-        <mock:shadow-root>
-          <ic-tooltip target="ic-button-with-tooltip-test-button" placement="bottom">
-            <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" class="button" id="ic-button-with-tooltip-test-button" type="button">
-              <slot></slot>
-            </button>
-          </ic-tooltip>
-        </mock:shadow-root>
-        Button
-      </ic-button>
-    `);
+    expect(element).toMatchSnapshot();
   });
 
   it("should render icon variant with a tooltip based on title", async () => {
@@ -252,18 +142,7 @@ describe("button component", () => {
     });
     element = page.root;
 
-    expect(element).toEqualHtml(`
-      <ic-button class="button-size-default button-variant-icon" id="test-button" variant="icon">
-        <mock:shadow-root>
-          <ic-tooltip target="ic-button-with-tooltip-test-button" label="Tooltip text" placement="bottom">
-            <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" class="button" id="ic-button-with-tooltip-test-button" type="button">
-              <slot></slot>
-            </button>
-          </ic-tooltip>
-        </mock:shadow-root>
-        Button
-      </ic-button>
-    `);
+    expect(element).toMatchSnapshot();
   });
 
   it("should render icon variant with a tooltip based on aria-label", async () => {
@@ -273,18 +152,7 @@ describe("button component", () => {
     });
     element = page.root;
 
-    expect(element).toEqualHtml(`
-      <ic-button class="button-size-default button-variant-icon" id="test-button" variant="icon" tooltip-placement="top">
-      <mock:shadow-root>
-        <ic-tooltip target="ic-button-with-tooltip-test-button" label="Tooltip text" placement="top">
-          <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" aria-label="Tooltip text" class="button" id="ic-button-with-tooltip-test-button" type="button">
-            <slot></slot>
-          </button>
-        </ic-tooltip>
-      </mock:shadow-root>
-      Button
-    </ic-button>
-    `);
+    expect(element).toMatchSnapshot();
   });
 
   it("should disable tooltip when prop set", async () => {
@@ -294,18 +162,7 @@ describe("button component", () => {
     });
     element = page.root;
 
-    expect(element).toEqualHtml(`
-      <ic-button class="button-size-default button-variant-icon" disable-tooltip="" id="test-button" variant="icon">
-        <mock:shadow-root>
-          <ic-tooltip class="tooltip-disabled" target="ic-button-with-tooltip-test-button" label="Tooltip text" placement="bottom">
-            <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" aria-label="Tooltip text" class="button" id="ic-button-with-tooltip-test-button" type="button">
-              <slot></slot>
-            </button>
-          </ic-tooltip>
-        </mock:shadow-root>
-        Button
-      </ic-button>
-    `);
+    expect(element).toMatchSnapshot();
   });
 
   it("should update when method called", async () => {
@@ -315,34 +172,12 @@ describe("button component", () => {
     });
     element = page.root;
 
-    expect(element).toEqualHtml(`
-      <ic-button class="button-size-default button-variant-icon" id="test-button" variant="icon">
-        <mock:shadow-root>
-          <ic-tooltip target="ic-button-with-tooltip-test-button" label="Tooltip text" placement="bottom">
-            <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" aria-label="Tooltip text" class="button" id="ic-button-with-tooltip-test-button" type="button">
-              <slot></slot>
-            </button>
-          </ic-tooltip>
-        </mock:shadow-root>
-        Button
-      </ic-button>
-      `);
+    expect(element).toMatchSnapshot();
 
     await element.updateAriaLabel("New tooltip text");
     await page.waitForChanges();
 
-    expect(element).toEqualHtml(`
-      <ic-button class="button-size-default button-variant-icon" id="test-button" variant="icon">
-        <mock:shadow-root>
-          <ic-tooltip target="ic-button-with-tooltip-test-button" label="Tooltip text" placement="bottom">
-            <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" aria-label="New tooltip text" class="button" id="ic-button-with-tooltip-test-button" type="button">
-              <slot></slot>
-            </button>
-          </ic-tooltip>
-        </mock:shadow-root>
-        Button
-      </ic-button>
-      `);
+    expect(element).toMatchSnapshot();
   });
 
   it("should stop immediate propagation of a click event when disabled", async () => {
