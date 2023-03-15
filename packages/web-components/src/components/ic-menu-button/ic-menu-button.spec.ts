@@ -83,11 +83,11 @@ describe("menu button variants", () => {
     });
 
     const eventSpy = jest.fn();
-    page.win.addEventListener('triggerPopoverMenuInstance', eventSpy);
+    page.win.addEventListener("triggerPopoverMenuInstance", eventSpy);
     expect(page.rootInstance.submenuTriggerFor).not.toBeUndefined();
-     const element = await document.getElementById('test-menu-button');
+    const element = await document.getElementById("test-menu-button");
 
-     await element.click();
+    await element.click();
 
     await page.waitForChanges();
 

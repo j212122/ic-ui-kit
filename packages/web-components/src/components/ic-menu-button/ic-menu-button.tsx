@@ -9,6 +9,7 @@ import {
   EventEmitter,
 } from "@stencil/core";
 import {
+  getParentElement,
   isSlotUsed,
   onComponentRequiredPropUndefined,
 } from "../../utils/helpers";
@@ -98,10 +99,10 @@ export class MenuButton {
     if (this.submenuTriggerFor !== undefined) {
       this.triggerPopoverMenuInstance.emit();
     } else if (this.variant === "toggle") {
-        this.toggleChecked
-          ? (this.toggleChecked = false)
-          : (this.toggleChecked = true);
-      }
+      this.toggleChecked
+        ? (this.toggleChecked = false)
+        : (this.toggleChecked = true);
+    }
   };
 
   componentDidLoad(): void {
@@ -115,6 +116,28 @@ export class MenuButton {
       this.variant = "default";
     }
   }
+
+  private getButtonAriaLabel = (): string => {
+    let ariaLabel = this.label;
+
+    if (this.description !== undefined) {
+      ariaLabel = `${ariaLabel}, ${this.description}`;
+    }
+
+    if (this.keyboardShortcut !== undefined) {
+      ariaLabel = `${ariaLabel}, ${this.keyboardShortcut}`;
+    }
+
+    const parentEl = getParentElement(this.el);
+
+    if (parentEl.tagName === "IC-MENU-GROUP") {
+      return `${ariaLabel}, ${
+        (parentEl as HTMLIcMenuGroupElement).label
+      } menu group`;
+    } else {
+      return ariaLabel;
+    }
+  };
 
   render() {
     // A helper function that checks if a prop has been defined
@@ -151,12 +174,6 @@ export class MenuButton {
       );
     };
 
-    //const userSetAriaLabel = this.el.shadowRoot.querySelector("li > ic-button");
-
-    // this.el.setAttribute("aria-label",`${this.el.label}. ${userSetAriaLabel? this.el.getAttribute("aria-label") : "no aria"}`)
-    // console.log("aria-label", userSetAriaLabel);
-    // console.log("aria-label", this.el.getAttribute("aria-label"));
-
     return (
       <Host
         class={{
@@ -180,6 +197,7 @@ export class MenuButton {
             referrerpolicy={
               this.referrerpolicy !== undefined ? this.referrerpolicy : null
             }
+            aria-label={this.getButtonAriaLabel()}
             aria-checked={
               this.variant === "toggle" && this.toggleChecked === true
                 ? true
