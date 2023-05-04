@@ -15,26 +15,6 @@
 | `target`             | `target`        | The ID of the element the tooltip is describing - for when aria-labelledby or aria-describedby is used. | `string`                                                                                                                                                             | `undefined` |
 
 
-## Methods
-
-### `displayTooltip(show: boolean, persistTooltip?: boolean) => Promise<void>`
-
-Method to programmatically show/hide the tooltip without needing to interact with an anchor element
-
-#### Returns
-
-Type: `Promise<void>`
-
-
-
-
-## CSS Custom Properties
-
-| Name                   | Description        |
-| ---------------------- | ------------------ |
-| `--ic-z-index-tooltip` | z-index of tooltip |
-
-
 ## Dependencies
 
 ### Used by
