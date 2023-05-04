@@ -68,13 +68,6 @@ Type: `Promise<void>`
 
 
 
-## CSS Custom Properties
-
-| Name                | Description                |
-| ------------------- | -------------------------- |
-| `--ic-z-index-menu` | z-index of search bar menu |
-
-
 ## Dependencies
 
 ### Depends on
