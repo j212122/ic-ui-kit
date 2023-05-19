@@ -34,3 +34,6 @@ coverage
 .env
 .npm
 fly
+packages/web-components/src/components.d.ts
+packages/web-components/src/components/ic-pagination/readme.md
+packages/web-components/src/components/ic-select/readme.md
